@@ -1,13 +1,13 @@
 class Bob {
   constructor(x, y) {
     var options = {
-      isStatic: true,
-      restitution: 0.8,
+      isStatic: false,
+      restitution: 1,
       friction: 0,
-      density: 1.2,
+      density: 0.8,
     };
-    this.body = Bodies.circle(x, y, 60, options);
-    this.radius = 60;
+    this.body = Bodies.circle(x, y, 50, options);
+    this.radius = 100;
 
     World.add(world, this.body);
   }

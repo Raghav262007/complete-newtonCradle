@@ -1,16 +1,17 @@
 class Rope {
   constructor(bodyA, bodyB, offsetX, offsetY) {
+    this.offsetX = offsetX;
+    this.offsetY = offsetY;
     var options = {
       bodyA: bodyA,
       bodyB: bodyB,
-      //stiffness: 0.04,
+      //stiffness: 1.0,
       //length: 10,
-      pointB: { x: offsetX, y: offsetY },
+      pointB: { x: this.offsetX, y: this.offsetY },
     };
 
     this.rope = Constraint.create(options);
-    this.offsetX = offsetX;
-    this.offsetY = offsetY;
+
     World.add(world, this.rope);
   }
 
@@ -19,6 +20,6 @@ class Rope {
     var point2 = this.rope.bodyB.position;
 
     strokeWeight(5);
-    line(point1.x, point1.y, this.offsetX, this.offsetY);
+    line(point1.x, point1.y, point2.x + this.offsetX, point2.y + this.offsetY);
   }
 }
